@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 7em;
+    color: rgba(175, 47, 47, 0.15);
+}
+
+.content {
+    max-width: 550px;
+    min-width: 230px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    display: flex;
+    align-content: center;
+}
+
+/* Emoji not centered correctly? */
+/* Form styles */
+.no-checkbox + label{
+    opacity: 50%;
+    font-size: 30px;
+}
+
+#input-field {
+    flex: 1;
+}
+
+.no-checkbox:checked + label{
+    opacity: 100%;
+}
+/* Form styles end */
+
+
+.todos {
+    list-style-type: none;
+    display: flex;
+}
+.todo {
+    display: flex;
+    flex: 1;
+}
+
+.todo-label {
+    flex: 1;
+}
+
+label {
+    user-select: none;
+}
+.no-radio, .no-checkbox {
+    appearance: none;
+}
+
+
+
+.no-radio:checked + label {
+    border: 1px solid green;
+    border-radius: 2px;
+}
+
+
+
+
+footer{
+    text-align: center;
+}

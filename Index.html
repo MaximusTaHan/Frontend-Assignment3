@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" description="This is a Todo app :)">
-    <title>Todo without the MVC</title>
-</head>
-<body>
-    <main>
-        <h1>todos</h1>
-        <div class="content">
-            <form name="input">
-                <div>
-                    <input type="radio">🔽</button>
-                    <input type="text" placeholder="What needs to be done?">
-                </div>
-            </form>
-            <ul class="todos">
-                <li class="todo">
-                    <input type="radio">Eat food</button>
-                    <button>❌</button>
-                </li>
-            </ul>
-            <div class="feature-bar">
-                <div class="item-counter">
-                    <span id="incomplete-count"></span><p>left</p>
-                </div>
-                <div class="filters">
-                    <input type="radio" name="filter-buttons" id="all" checked>
-                    <label for="all">all</label>
 
-                    <input type="radio" name="filter-buttons" id="active">
-                    <label for="active">active</label>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" description="This is a Todo app :)">
+        <link rel="stylesheet" href="style.css">
+        <title>Todo without the MVC</title>
+    </head>
 
-                    <input type="radio" name="filter-buttons" id="completed">
-                    <label for="completed">completed</label>
-                </div>
-                <div>
-                    <button>
-                        Clear completed
-                    </button>
+    <body>
+        <main>
+            <h1>todos</h1>
+            <div class="content">
+                <form name="input">
+                    <div id="toggle-container">
+                        <input type="checkbox" class="no-checkbox" id="toggle-all" checked>
+                        <label for="toggle-all">🔽</label>
+                    </div>
+
+                    <input type="text" id="input-field" placeholder="What needs to be done?">
+                </form>
+                <ul class="todos">
+                    <li class="todo">
+                        <input type="checkbox">
+                            
+                        </input>
+                        <label class="todo-label">Eat food</label>
+                        <button>❌</button>
+                    </li>
+                </ul>
+                <div class="feature-bar">
+                    <div class="item-counter">
+                        <span id="incomplete-count"></span>
+                        <p>left</p>
+                    </div>
+                    <div class="filters">
+                        <input type="radio" class="no-radio" name="filter-buttons" id="all" checked>
+                        <label for="all">all</label>
+
+                        <input type="radio" class="no-radio" name="filter-buttons" id="active">
+                        <label for="active">active</label>
+
+                        <input type="radio" class="no-radio" name="filter-buttons" id="completed">
+                        <label for="completed">completed</label>
+                    </div>
+                    <div>
+                        <button>
+                            Clear completed
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-</body>
-<footer>
-    <p>Some text here</p>
-</footer>
+        </main>
+    </body>
+    <footer>
+        <p>Some text here</p>
+    </footer>
+
 </html>
