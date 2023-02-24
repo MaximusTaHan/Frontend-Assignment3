@@ -31,17 +31,31 @@ h1 {
 form {
     display: flex;
     align-content: center;
+    /* Added by anna below: */
+    height: 65.6px;
 }
 
-/* Emoji not centered correctly? */
+/* Emoji not centered correctly? -- Anna fixed?*/
 /* Form styles */
+
+form #toggle-container {
+    /* added */
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .no-checkbox + label{
     opacity: 50%;
-    font-size: 30px;
+    /* changed below */
+    font-size: 17px;
 }
 
 #input-field {
     flex: 1;
+    /* Added below: */
+    margin-left: 10px;
+    font-size: 24px;
 }
 
 .no-checkbox:checked + label{
@@ -49,31 +63,82 @@ form {
 }
 /* Form styles end */
 
+/* List item styles */
+input.checkbox {
+    /* Added */
+    width: 30px;
+    height: 20px;
+    margin: auto 0 auto 0;
+}
 
 .todos {
     list-style-type: none;
-    display: flex;
+    display: flex;  
+    /* Added below: */
+    flex-direction: column;
 }
-.todo {
+
+li.todo {
     display: flex;
     flex: 1;
 }
 
-.todo-label {
+li .todo-label {
+    display:flex;
     flex: 1;
+    /* Added below: */
+    align-items: center;
+    margin-left: 10px;
+    height: 58.8px;
+    font-size: 24px;
 }
 
+button {
+    /* Added */
+    border: none;
+    background-color: transparent;
+}
+/* List item styles end*/
+
+/* Feature bar styles. ADDED */
+.feature-bar {
+    display: flex;
+}
+
+.feature-bar .filters {
+    /* men kolla responsiviteten här. De ska ändra ordning när skärmen blir mindre,
+    så det kanske är bättre med grid på hela feature-bar.
+    Jag avvaktar att göra mer här just nu */
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.feature-bar button:hover {
+    text-decoration: underline;
+} 
+
+/* Feature bar styles end*/
+
+/* Misc styles */
 label {
     user-select: none;
 }
+
 .no-radio, .no-checkbox {
     appearance: none;
 }
 
-
-
 .no-radio:checked + label {
-    border: 1px solid green;
+    border: 1px solid;
+    border-color: rgba(175, 47, 47, 0.2);
+    border-radius: 2px;
+}
+
+.no-radio:hover + label {
+    border: 1px solid;
+    /* added */
+    border-color: rgba(175, 47, 47, 0.1);
     border-radius: 2px;
 }
 
