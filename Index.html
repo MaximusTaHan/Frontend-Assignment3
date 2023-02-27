@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" description="This is a Todo app :)">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
     <title>Todo without the MVC</title>
 </head>
 
@@ -21,13 +22,16 @@
                 </div>
                 <input type="text" id="input-field" placeholder="What needs to be done?">
             </form>
-            <ul class="todos">
-                <li class="todo">
-                    <input type="checkbox" class="checkbox"></input><!-- Anna added class  -->
-                    <label class="todo-label">Eat food</label>
-                    <button>❌</button>
-                </li>
-            </ul>
+            <template id="todo-template">
+                <ul class="todos">
+                    <li class="todo">
+                        <input type="checkbox" class="checkbox"></input>
+                        <label class="todo-label">Eat food</label>
+                        <button>❌</button>
+                    </li>
+                </ul>
+            </template>
+            <div id="todo-content"></div>
             <div class="feature-bar">
                 <div class="item-counter">
                     <span id="incomplete-count"></span>

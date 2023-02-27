@@ -1,3 +1,12 @@
+/* FRÅGA JAKOB:
+hur skala storleken, cssen säger att lådorna alltid är lika stora, men de blir mindre på skärmen vid smalare skärm 
+
+är det ok i denna? 
+.no-checkbox+label 
+
+@media (max-width: 399px)
+MÅSTE FINNAS ETT SNYGGARE SÄTT ATT STYRA NÄR HOPPET SKER? 
+*/
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +35,8 @@ h1 {
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    /* comma separated gives an extra set of shadows: (value from original site) */
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%)
 }
 
 form {
@@ -33,6 +44,9 @@ form {
     align-content: center;
     /* Added by anna below: */
     height: 65.6px;
+    background-color: white;
+    /* INTE HELT RÄTT FÄRG */
+
 }
 
 /* Emoji not centered correctly? -- Anna fixed?*/
@@ -45,10 +59,13 @@ form #toggle-container {
     justify-content: center;
     align-items: center;
 }
-.no-checkbox + label{
+
+.no-checkbox+label {
     opacity: 50%;
     /* changed below */
     font-size: 17px;
+    /* HÖR MED JAKOB OM NEDAN RAD ÄR OKEJ */
+    padding: 15px;
 }
 
 #input-field {
@@ -56,11 +73,22 @@ form #toggle-container {
     /* Added below: */
     margin-left: 10px;
     font-size: 24px;
+    border-style: none;
 }
 
-.no-checkbox:checked + label{
+#input-field::placeholder {
+    /* Added: */
+    flex: 1;
+    margin-left: 10px;
+    font-size: 24px;
+    font-style: italic;
+    color: #e6e6e6;
+}
+
+.no-checkbox:checked+label {
     opacity: 100%;
 }
+
 /* Form styles end */
 
 /* List item styles */
@@ -73,7 +101,7 @@ input.checkbox {
 
 .todos {
     list-style-type: none;
-    display: flex;  
+    display: flex;
     /* Added below: */
     flex-direction: column;
 }
@@ -81,10 +109,12 @@ input.checkbox {
 li.todo {
     display: flex;
     flex: 1;
+    background-color: white;
+    /* INTE HELT RÄTT FÄRG */
 }
 
 li .todo-label {
-    display:flex;
+    display: flex;
     flex: 1;
     /* Added below: */
     align-items: center;
@@ -98,25 +128,56 @@ button {
     border: none;
     background-color: transparent;
 }
+
 /* List item styles end*/
 
 /* Feature bar styles. ADDED */
 .feature-bar {
     display: flex;
+    /* INTE HELT RÄTT FÄRG: */
+    background-color: white;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 41px;
+    padding: 10px 15px;
+}
+
+.feature-bar .item-counter {
+    /* display: flex; */
+    width: 102px;
 }
 
 .feature-bar .filters {
-    /* men kolla responsiviteten här. De ska ändra ordning när skärmen blir mindre,
-    så det kanske är bättre med grid på hela feature-bar.
-    Jag avvaktar att göra mer här just nu */
     display: flex;
-    flex: 1;
-    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.feature-bar .filters label {
+    padding: 3px 7px;
+}
+
+.feature-bar button {
+    /* display: flex; */
+    width: 102px;
 }
 
 .feature-bar button:hover {
     text-decoration: underline;
-} 
+}
+
+@media (max-width: 399px) {
+
+    /* MÅSTE FINNAS ETT SNYGGARE SÄTT ATT STYRA NÄR HOPPET SKER? */
+    .feature-bar .filters {
+        order: 1;
+        /* margin-left: auto;
+        margin-right: auto; */
+        margin-top: 10px;
+    }
+}
 
 /* Feature bar styles end*/
 
@@ -125,17 +186,18 @@ label {
     user-select: none;
 }
 
-.no-radio, .no-checkbox {
+.no-radio,
+.no-checkbox {
     appearance: none;
 }
 
-.no-radio:checked + label {
+.no-radio:checked+label {
     border: 1px solid;
     border-color: rgba(175, 47, 47, 0.2);
     border-radius: 2px;
 }
 
-.no-radio:hover + label {
+.no-radio:hover+label {
     border: 1px solid;
     /* added */
     border-color: rgba(175, 47, 47, 0.1);
@@ -145,6 +207,6 @@ label {
 
 
 
-footer{
+footer {
     text-align: center;
 }
