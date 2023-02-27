@@ -6,6 +6,8 @@ hur skala storleken, cssen säger att lådorna alltid är lika stora, men de bli
 
 @media (max-width: 399px)
 MÅSTE FINNAS ETT SNYGGARE SÄTT ATT STYRA NÄR HOPPET SKER? 
+
+hidden-attribute på div?
 */
 * {
     margin: 0;
@@ -135,7 +137,7 @@ button {
 .feature-bar {
     display: flex;
     /* INTE HELT RÄTT FÄRG: */
-    background-color: white;
+    background-color: #fefefe;
     flex-wrap: wrap;
     justify-content: space-between;
     min-height: 41px;
