@@ -1,18 +1,12 @@
-/* FRÅGA JAKOB:
-hur skala storleken, cssen säger att lådorna alltid är lika stora, men de blir mindre på skärmen vid smalare skärm 
 
-är det ok i denna? 
-.no-checkbox+label 
-
-@media (max-width: 399px)
-MÅSTE FINNAS ETT SNYGGARE SÄTT ATT STYRA NÄR HOPPET SKER? 
-
-hidden-attribute på div?
-*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
 }
 
 html {
@@ -44,18 +38,15 @@ h1 {
 form {
     display: flex;
     align-content: center;
-    /* Added by anna below: */
     height: 65.6px;
     background-color: white;
     /* INTE HELT RÄTT FÄRG */
 
 }
 
-/* Emoji not centered correctly? -- Anna fixed?*/
 /* Form styles */
 
 form #toggle-container {
-    /* added */
     width: 30px;
     display: flex;
     justify-content: center;
@@ -64,22 +55,19 @@ form #toggle-container {
 
 .no-checkbox+label {
     opacity: 50%;
-    /* changed below */
     font-size: 17px;
-    /* HÖR MED JAKOB OM NEDAN RAD ÄR OKEJ */
     padding: 15px;
 }
 
 #input-field {
     flex: 1;
-    /* Added below: */
     margin-left: 10px;
     font-size: 24px;
     border-style: none;
+    width: 100%;
 }
 
 #input-field::placeholder {
-    /* Added: */
     flex: 1;
     margin-left: 10px;
     font-size: 24px;
@@ -95,7 +83,6 @@ form #toggle-container {
 
 /* List item styles */
 input.checkbox {
-    /* Added */
     width: 30px;
     height: 20px;
     margin: auto 0 auto 0;
@@ -104,7 +91,6 @@ input.checkbox {
 .todos {
     list-style-type: none;
     display: flex;
-    /* Added below: */
     flex-direction: column;
 }
 
@@ -123,43 +109,41 @@ li.todo {
 li .todo-label {
     display: flex;
     flex: 1;
-    /* Added below: */
     align-items: center;
     margin-left: 10px;
     height: 58.8px;
     font-size: 24px;
 }
 
-.checkbox:checked + label {
+.checkbox:checked+label {
     color: #d9d9d9;
     text-decoration: line-through;
 }
 
-li > button {
+li>button {
     display: none;
 }
 
-li:hover > button {
+li:hover>button {
     display: block;
     opacity: 50%;
     transition: 1s;
 }
 
-li:hover > button:hover {
+li:hover>button:hover {
     display: block;
     opacity: 100%;
     transition: 1s;
 }
 
 button {
-    /* Added */
     border: none;
     background-color: transparent;
 }
 
 /* List item styles end*/
 
-/* Feature bar styles. ADDED */
+/* Feature bar styles.*/
 .feature-bar {
     display: flex;
     /* INTE HELT RÄTT FÄRG: */
@@ -196,14 +180,15 @@ button {
     text-decoration: underline;
 }
 
-@media (max-width: 399px) {
+@media (max-width: 420px) {
 
-    /* MÅSTE FINNAS ETT SNYGGARE SÄTT ATT STYRA NÄR HOPPET SKER? */
     .feature-bar .filters {
         order: 1;
         /* margin-left: auto;
         margin-right: auto; */
         margin-top: 10px;
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -227,7 +212,6 @@ label {
 
 .no-radio:hover+label {
     border: 1px solid;
-    /* added */
     border-color: rgba(175, 47, 47, 0.1);
     border-radius: 2px;
 }

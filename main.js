@@ -41,7 +41,7 @@ todoContent.addEventListener('click', (event) => {
 })
 
 toggleAllCheckbox.addEventListener('change', (event) => {
-    let currentList = document.querySelectorAll('.todo')
+    let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
         let currentItem = listItem.querySelector('input')
         if (toggleAllCheckbox.checked) {
@@ -49,7 +49,16 @@ toggleAllCheckbox.addEventListener('change', (event) => {
         }
         else {
             currentItem.checked = false;
-
         }
     }
 })
+
+//ej klar!!
+function itemCounter() {
+    let currentList = document.querySelectorAll('.todo');
+    let counter;
+    for (listItem of currentList) {
+        let checked = listItem.querySelector('input').checked? true : false;
+        
+    }
+}
