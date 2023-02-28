@@ -20,6 +20,8 @@ form.onsubmit = event => {
     list.appendChild(newItem);
 
     form.elements.inputField.value = '';
+
+    countCheckedItems();
 };
 
 // Adds an event listener to the entire todo-content container that listens for clicks
@@ -37,7 +39,9 @@ todoContent.addEventListener('click', (event) => {
         
         let itemsLeft = document.querySelector('#incomplete-count');
         itemsLeft.textContent = 'Something happened!!!'
+        let checkedCount = countCheckedItems();
     }
+
 })
 
 toggleAllCheckbox.addEventListener('change', (event) => {
@@ -51,14 +55,30 @@ toggleAllCheckbox.addEventListener('change', (event) => {
             currentItem.checked = false;
         }
     }
+    let checkedCount = countCheckedItems();
 })
 
-//ej klar!!
-function itemCounter() {
+function countCheckedItems() {
     let currentList = document.querySelectorAll('.todo');
-    let counter;
+    let counter = 0;
     for (listItem of currentList) {
-        let checked = listItem.querySelector('input').checked? true : false;
-        
+        let itemCheckbox = listItem.querySelector('input');
+        if (itemCheckbox.checked) {
+            counter++;
+        }
+    }
+
+    toggleFeatureBar();
+    return counter;
+}
+
+function toggleFeatureBar() {
+    let currentList = document.querySelectorAll('.todo');
+    let featureBar = document.querySelector('.feature-bar')
+    if (currentList.length > 0) {
+         featureBar.removeAttribute('hidden');
+    }
+    else {
+        featureBar.setAttribute('hidden',true);
     }
 }
