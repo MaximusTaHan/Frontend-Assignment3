@@ -3,6 +3,7 @@ let todoListTemplate = document.querySelector('#todo-template');
 let todoContent = document.querySelector('#todo-content');
 let toggleAllCheckbox = document.querySelector('#toggle-all');
 let filterButtons = document.querySelector('.filters');
+let clearCompletedButton = document.querySelector('#clear-button');
 
 todoContent.appendChild(todoListTemplate.cloneNode(true).content);
 let list = todoContent.querySelector('ul');
@@ -68,6 +69,12 @@ filterButtons.addEventListener('change', (event) => {
             }
         }
     }
+})
+
+// to be completed:
+clearCompletedButton.addEventListener('click', (event) => {
+    let currentList = document.querySelectorAll('.todo')
+    // if ()
 })
 
 toggleAllCheckbox.addEventListener('change', (event) => {
