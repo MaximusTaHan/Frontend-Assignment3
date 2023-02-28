@@ -51,12 +51,12 @@ toggleAllCheckbox.addEventListener('change', (event) => {
 
 function countCheckedItems() {
     let currentList = document.querySelectorAll('.todo');
-    let checkedcounter = 0;
+    let checkedCounter = 0;
     let uncheckedCounter = 0;
     for (listItem of currentList) {
         let itemCheckbox = listItem.querySelector('input');
         if (itemCheckbox.checked) {
-            checkedcounter++;
+            checkedCounter++;
         }
         else {
             uncheckedCounter++;
@@ -65,17 +65,22 @@ function countCheckedItems() {
 
     toggleFeatureBar();
     countItems(uncheckedCounter);
-}
-
-function toggleClearCompletedButtonVisibility() {
-
+    let clearButton = document.querySelector('#clear-button');
+    if (checkedCounter > 0) {
+        clearButton.textContent = "Clear completed";
+    }
+    else
+    {
+        clearButton.textContent = "";
+    }
+    
 }
 
 function toggleFeatureBar() {
     let currentList = document.querySelectorAll('.todo');
     let featureBar = document.querySelector('.feature-bar')
     if (currentList.length > 0) {
-         featureBar.removeAttribute('hidden');
+        featureBar.removeAttribute('hidden');
     }
     else {
         featureBar.setAttribute('hidden',true);
