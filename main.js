@@ -31,6 +31,15 @@ todoContent.addEventListener('click', (event) => {
     }
 })
 
+todoContent.addEventListener('click', (event) => {
+    if (event.target.nodeName === 'INPUT') {
+        const todo = event.target.parentNode;
+        
+        let itemsLeft = document.querySelector('#incomplete-count');
+        itemsLeft.textContent = 'Something happened!!!'
+    }
+})
+
 toggleAllCheckbox.addEventListener('change', (event) => {
     let currentList = document.querySelectorAll('.todo')
     for (listItem of currentList) {
