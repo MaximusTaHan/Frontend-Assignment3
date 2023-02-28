@@ -21,4 +21,7 @@ form.onsubmit = event => {
     form.elements.inputField.value = '';
 };
 
- 
+todoContent.addEventListener('click', (event) => {
+    const todo = event.target.parentNode;
+    todo.remove();
+})
