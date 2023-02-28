@@ -22,9 +22,13 @@ form.onsubmit = event => {
     form.elements.inputField.value = '';
 };
 
+// Adds an event listener to the entire todo-content container that listens for clicks
+// If the click occurs on a button it will delete the closest list item element
 todoContent.addEventListener('click', (event) => {
-    const todo = event.target.parentNode;
-    todo.remove();
+    if (event.target.nodeName === 'BUTTON') {
+        const todo = event.target.parentNode;
+        todo.remove();
+    }
 })
 
 toggleAllCheckbox.addEventListener('change', (event) => {
