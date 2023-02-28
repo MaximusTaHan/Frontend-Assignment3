@@ -99,7 +99,15 @@ function countCheckedItems() {
         }
     }
 
-    
+    // visibility of "drop-down button"
+    let dropDownButtonLabel = document.querySelector('#toggle-all-label');
+    if (currentList.length > 0) 
+    {
+        dropDownButtonLabel.removeAttribute('hidden');
+    }
+    else{
+        dropDownButtonLabel.setAttribute('hidden', true);
+    }
     
     toggleFeatureBar();
     countItems(uncheckedCounter);
