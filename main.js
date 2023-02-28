@@ -99,18 +99,29 @@ function countCheckedItems() {
         }
     }
 
-    // visibility of "drop-down button"
+    // visibility of "drop-down-button"
     let dropDownButtonLabel = document.querySelector('#toggle-all-label');
-    if (currentList.length > 0) 
+    if (currentList.length > 0) // if there are items in the list
     {
         dropDownButtonLabel.removeAttribute('hidden');
+        if (currentList.length === checkedCounter) // if all items are selected
+        {
+            // check drop down-button
+            toggleAllCheckbox.checked = true;
+        }
+        else // all items aren't selected
+        {
+            // uncheck drop down-button
+            toggleAllCheckbox.checked = false;
+        }
     }
-    else{
+    else{ // if list is empty, hide drop down-button
         dropDownButtonLabel.setAttribute('hidden', true);
     }
     
     toggleFeatureBar();
     countItems(uncheckedCounter);
+    // visibility of Clear completed-button
     let clearButton = document.querySelector('#clear-button');
     if (checkedCounter > 0) {
         clearButton.textContent = "Clear completed";
