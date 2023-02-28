@@ -35,7 +35,6 @@ todoContent.addEventListener('click', (event) => {
     countCheckedItems();
 })
 
-
 toggleAllCheckbox.addEventListener('change', (event) => {
     let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
@@ -52,20 +51,24 @@ toggleAllCheckbox.addEventListener('change', (event) => {
 
 function countCheckedItems() {
     let currentList = document.querySelectorAll('.todo');
-    let counter = 0;
-    let left = 0;
+    let checkedcounter = 0;
+    let uncheckedCounter = 0;
     for (listItem of currentList) {
         let itemCheckbox = listItem.querySelector('input');
         if (itemCheckbox.checked) {
-            counter++;
+            checkedcounter++;
         }
         else {
-            left++;
+            uncheckedCounter++;
         }
     }
 
     toggleFeatureBar();
-    countItems(left);
+    countItems(uncheckedCounter);
+}
+
+function toggleClearCompletedButtonVisibility() {
+
 }
 
 function toggleFeatureBar() {
