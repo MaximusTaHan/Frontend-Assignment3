@@ -31,13 +31,8 @@ todoContent.addEventListener('click', (event) => {
         const todo = event.target.parentNode;
         todo.remove();
     }
-    if (event.target.nodeName === 'INPUT') {
-        const todo = event.target.parentNode;
-        
-        let itemsLeft = document.querySelector('#incomplete-count');
-        itemsLeft.textContent = 'Something happened!!!'
-    }
-    let checkedCount = countCheckedItems();
+    
+    countCheckedItems();
 })
 
 
@@ -52,21 +47,25 @@ toggleAllCheckbox.addEventListener('change', (event) => {
             currentItem.checked = false;
         }
     }
-    let checkedCount = countCheckedItems();
+    countCheckedItems();
 })
 
 function countCheckedItems() {
     let currentList = document.querySelectorAll('.todo');
     let counter = 0;
+    let left = 0;
     for (listItem of currentList) {
         let itemCheckbox = listItem.querySelector('input');
         if (itemCheckbox.checked) {
             counter++;
         }
+        else {
+            left++;
+        }
     }
 
     toggleFeatureBar();
-    return counter;
+    countItems(left);
 }
 
 function toggleFeatureBar() {
@@ -77,5 +76,15 @@ function toggleFeatureBar() {
     }
     else {
         featureBar.setAttribute('hidden',true);
+    }
+}
+
+function countItems(count) {
+    let itemsLeft = document.querySelector('#incomplete-count');
+    if(count === 1) {
+        itemsLeft.textContent = count + ' item left';
+    }
+    else {
+        itemsLeft.textContent = count + ' items left';
     }
 }
