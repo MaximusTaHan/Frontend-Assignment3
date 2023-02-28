@@ -2,6 +2,7 @@ let form = document.querySelector('#input');
 let todoListTemplate = document.querySelector('#todo-template');
 let todoContent = document.querySelector('#todo-content');
 let toggleAllCheckbox = document.querySelector('#toggle-all');
+let filterButtons = document.querySelector('.filters');
 
 todoContent.appendChild(todoListTemplate.cloneNode(true).content);
 let list = todoContent.querySelector('ul');
@@ -35,7 +36,42 @@ todoContent.addEventListener('click', (event) => {
     countCheckedItems();
 })
 
+filterButtons.addEventListener('change', (event) => {
+    let currentList = document.querySelectorAll('.todo')
+    if (event.target.id === 'all')
+    {
+        for (item of currentList) {
+            item.removeAttribute('hidden');
+        }
+    }
+    if (event.target.id === 'active')
+    {
+        for (item of currentList) {
+            let itemInput = item.querySelector('input');
+            if (itemInput.checked) {
+                item.setAttribute('hidden', true);
+            }
+            else {
+                item.removeAttribute('hidden');
+            }
+        }
+    }
+    if (event.target.id === 'completed')
+    {
+        for (item of currentList) {
+            let itemInput = item.querySelector('input');
+            if (!itemInput.checked) {
+                item.setAttribute('hidden', true);
+            }
+            else {
+                item.removeAttribute('hidden');
+            }
+        }
+    }
+})
+
 toggleAllCheckbox.addEventListener('change', (event) => {
+    // label should be hidden if count is 0
     let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
         let currentItem = listItem.querySelector('input')
@@ -63,6 +99,8 @@ function countCheckedItems() {
         }
     }
 
+    
+    
     toggleFeatureBar();
     countItems(uncheckedCounter);
     let clearButton = document.querySelector('#clear-button');
@@ -96,3 +134,4 @@ function countItems(count) {
         itemsLeft.textContent = count + ' items left';
     }
 }
+
