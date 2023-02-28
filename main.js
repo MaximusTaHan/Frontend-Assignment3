@@ -31,18 +31,15 @@ todoContent.addEventListener('click', (event) => {
         const todo = event.target.parentNode;
         todo.remove();
     }
-})
-
-todoContent.addEventListener('click', (event) => {
     if (event.target.nodeName === 'INPUT') {
         const todo = event.target.parentNode;
         
         let itemsLeft = document.querySelector('#incomplete-count');
         itemsLeft.textContent = 'Something happened!!!'
-        let checkedCount = countCheckedItems();
     }
-
+    let checkedCount = countCheckedItems();
 })
+
 
 toggleAllCheckbox.addEventListener('change', (event) => {
     let currentList = document.querySelectorAll('.todo');
