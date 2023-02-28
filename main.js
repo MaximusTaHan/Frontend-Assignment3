@@ -36,7 +36,7 @@ todoContent.addEventListener('click', (event) => {
 })
 
 
-toggleAllCheckbox.addEventListener('change', (event) => {
+toggleAllCheckbox.addEventListener('click', (event) => {
     let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
         let currentItem = listItem.querySelector('input')
