@@ -71,17 +71,23 @@ filterButtons.addEventListener('change', (event) => {
     }
 })
 
-// to be completed:
+// Gets current list of items and removes the "completed" ones
 clearCompletedButton.addEventListener('click', (event) => {
-    let currentList = document.querySelectorAll('.todo')
-    // if ()
+    let currentList = document.querySelectorAll('.todo');
+    for (listItem of currentList) {
+        let currentItem = listItem.querySelector('input');
+        if(currentItem.checked) {
+            listItem.remove();
+        }
+    }
+    countCheckedItems();
 })
 
 toggleAllCheckbox.addEventListener('change', (event) => {
     // label should be hidden if count is 0
     let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
-        let currentItem = listItem.querySelector('input')
+        let currentItem = listItem.querySelector('input');
         if (toggleAllCheckbox.checked) {
             currentItem.checked = true;
         }
