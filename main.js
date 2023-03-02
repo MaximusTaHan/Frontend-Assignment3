@@ -84,8 +84,8 @@ clearCompletedButton.addEventListener('click', (event) => {
     countCheckedItems();
 })
 
+
 toggleAllCheckbox.addEventListener('change', (event) => {
-    // label should be hidden if count is 0
     let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
         let currentItem = listItem.querySelector('input');
@@ -117,29 +117,28 @@ function countCheckedItems() {
         }
     }
 
-    // visibility of "drop-down-button"
-    // Rename dropDownButton?
-    let dropDownButtonLabel = document.querySelector('#toggle-all-label');
+    // visibility of toggle-all-checkbox
+    let toggleAllLabel = document.querySelector('#toggle-all-label');
     // if there are items in the list
     if (currentList.length > 0) 
     {
-        dropDownButtonLabel.removeAttribute('hidden');
+        toggleAllLabel.removeAttribute('hidden');
         // if all items are selected
         if (currentList.length === checkedCounter) 
         {
-            // check drop down-button
+            // check toggle-checkbox
             toggleAllCheckbox.checked = true;
         }
         // all items aren't selected
         else 
         {
-            // uncheck drop down-button
+            // uncheck toggle-checkbox
             toggleAllCheckbox.checked = false;
         }
     }
     else { 
-        // if list is empty, hide drop down-button
-        dropDownButtonLabel.setAttribute('hidden', true);
+        // if list is empty, hide toggle-checkbox
+        toggleAllLabel.setAttribute('hidden', true);
     }
 
     toggleFeatureBar();
