@@ -1,0 +1,21 @@
+{
+  "name": "frontend-assignment3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximusTaHan/Frontend-Assignment3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaximusTaHan/Frontend-Assignment3/issues"
+  },
+  "homepage": "https://github.com/MaximusTaHan/Frontend-Assignment3#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.31.1"
+  }
+}
