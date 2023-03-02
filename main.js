@@ -38,13 +38,17 @@ todoContent.addEventListener('click', (event) => {
 })
 
 filterButtons.addEventListener('change', (event) => {
+    currentFilterSort(event.target.id);
+})
+
+function currentFilterSort(filterType) {
     let currentList = document.querySelectorAll('.todo')
-    if (event.target.id === 'all') {
+    if (filterType === 'all') {
         for (item of currentList) {
             item.removeAttribute('hidden');
         }
     }
-    if (event.target.id === 'active') {
+    if (filterType === 'active') {
         for (item of currentList) {
             let itemInput = item.querySelector('input');
             if (itemInput.checked) {
@@ -55,7 +59,7 @@ filterButtons.addEventListener('change', (event) => {
             }
         }
     }
-    if (event.target.id === 'completed') {
+    if (filterType === 'completed') {
         for (item of currentList) {
             let itemInput = item.querySelector('input');
             if (!itemInput.checked) {
@@ -66,7 +70,7 @@ filterButtons.addEventListener('change', (event) => {
             }
         }
     }
-})
+}
 
 // Gets current list of items and removes the "completed" ones
 clearCompletedButton.addEventListener('click', (event) => {
@@ -92,6 +96,9 @@ toggleAllCheckbox.addEventListener('change', (event) => {
             currentItem.checked = false;
         }
     }
+
+    let filterType = document.querySelector('.filters input:checked');
+    currentFilterSort(filterType.id);
     countCheckedItems();
 })
 
