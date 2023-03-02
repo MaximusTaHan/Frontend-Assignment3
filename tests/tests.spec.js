@@ -30,16 +30,16 @@ test('ensure item count', async ({ page }) => {
 
   // Locate the todo checkbox and get the uncompleted task text
   let todo = await page.locator('#todo-content li input');
-  let uncompleteCounter = await page.locator('#incomplete-count').textContent();
+  let incompleteCounter = await page.locator('#incomplete-count').textContent();
 
   // Check that the correct text is displayed
-  await expect(uncompleteCounter).toEqual('1 item left');
+  await expect(incompleteCounter).toEqual('1 item left');
 
   // Check the box and get the count again
   await todo.check();
-  uncompleteCounter = await page.locator('#incomplete-count').textContent();
+  incompleteCounter = await page.locator('#incomplete-count').textContent();
 
-  await expect(uncompleteCounter).toEqual('0 items left');
+  await expect(incompleteCounter).toEqual('0 items left');
 });
 
 test('ensure count with multiple posts', async ({ page }) => {
@@ -70,6 +70,6 @@ test('ensure count with multiple posts', async ({ page }) => {
   await todo.check();
 
   // Ensure the label contains the correct text
-  let uncompleteCounter = await page.locator('#incomplete-count').textContent();
-  await expect(uncompleteCounter).toEqual('2 items left');
+  let incompleteCounter = await page.locator('#incomplete-count').textContent();
+  await expect(incompleteCounter).toEqual('2 items left');
 });
