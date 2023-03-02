@@ -33,20 +33,18 @@ todoContent.addEventListener('click', (event) => {
         const todo = event.target.parentNode;
         todo.remove();
     }
-    
+
     countCheckedItems();
 })
 
 filterButtons.addEventListener('change', (event) => {
     let currentList = document.querySelectorAll('.todo')
-    if (event.target.id === 'all')
-    {
+    if (event.target.id === 'all') {
         for (item of currentList) {
             item.removeAttribute('hidden');
         }
     }
-    if (event.target.id === 'active')
-    {
+    if (event.target.id === 'active') {
         for (item of currentList) {
             let itemInput = item.querySelector('input');
             if (itemInput.checked) {
@@ -57,8 +55,7 @@ filterButtons.addEventListener('change', (event) => {
             }
         }
     }
-    if (event.target.id === 'completed')
-    {
+    if (event.target.id === 'completed') {
         for (item of currentList) {
             let itemInput = item.querySelector('input');
             if (!itemInput.checked) {
@@ -76,7 +73,7 @@ clearCompletedButton.addEventListener('click', (event) => {
     let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
         let currentItem = listItem.querySelector('input');
-        if(currentItem.checked) {
+        if (currentItem.checked) {
             listItem.remove();
         }
     }
@@ -102,6 +99,7 @@ function countCheckedItems() {
     let currentList = document.querySelectorAll('.todo');
     let checkedCounter = 0;
     let uncheckedCounter = 0;
+
     for (listItem of currentList) {
         let itemCheckbox = listItem.querySelector('input');
         if (itemCheckbox.checked) {
@@ -113,37 +111,41 @@ function countCheckedItems() {
     }
 
     // visibility of "drop-down-button"
+    // Rename dropDownButton?
     let dropDownButtonLabel = document.querySelector('#toggle-all-label');
-    if (currentList.length > 0) // if there are items in the list
+    // if there are items in the list
+    if (currentList.length > 0) 
     {
         dropDownButtonLabel.removeAttribute('hidden');
-        if (currentList.length === checkedCounter) // if all items are selected
+        // if all items are selected
+        if (currentList.length === checkedCounter) 
         {
             // check drop down-button
             toggleAllCheckbox.checked = true;
         }
-        else // all items aren't selected
+        // all items aren't selected
+        else 
         {
             // uncheck drop down-button
             toggleAllCheckbox.checked = false;
         }
     }
-    else{ // if list is empty, hide drop down-button
+    else { 
+        // if list is empty, hide drop down-button
         dropDownButtonLabel.setAttribute('hidden', true);
     }
-    
+
     toggleFeatureBar();
-    countItems(uncheckedCounter);
+    itemsLeftDisplay(uncheckedCounter);
     // visibility of Clear completed-button
     let clearButton = document.querySelector('#clear-button');
     if (checkedCounter > 0) {
         clearButton.textContent = "Clear completed";
     }
-    else
-    {
+    else {
         clearButton.textContent = "";
     }
-    
+
 }
 
 function toggleFeatureBar() {
@@ -153,13 +155,13 @@ function toggleFeatureBar() {
         featureBar.removeAttribute('hidden');
     }
     else {
-        featureBar.setAttribute('hidden',true);
+        featureBar.setAttribute('hidden', true);
     }
 }
 
-function countItems(count) {
+function itemsLeftDisplay(count) {
     let itemsLeft = document.querySelector('#incomplete-count');
-    if(count === 1) {
+    if (count === 1) {
         itemsLeft.textContent = count + ' item left';
     }
     else {
