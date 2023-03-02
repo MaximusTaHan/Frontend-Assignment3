@@ -3,6 +3,7 @@ let todoListTemplate = document.querySelector('#todo-template');
 let todoContent = document.querySelector('#todo-content');
 let toggleAllCheckbox = document.querySelector('#toggle-all');
 let filterButtons = document.querySelector('.filters');
+let clearCompletedButton = document.querySelector('#clear-button');
 
 todoContent.appendChild(todoListTemplate.cloneNode(true).content);
 let list = todoContent.querySelector('ul');
@@ -70,11 +71,23 @@ filterButtons.addEventListener('change', (event) => {
     }
 })
 
+// Gets current list of items and removes the "completed" ones
+clearCompletedButton.addEventListener('click', (event) => {
+    let currentList = document.querySelectorAll('.todo');
+    for (listItem of currentList) {
+        let currentItem = listItem.querySelector('input');
+        if(currentItem.checked) {
+            listItem.remove();
+        }
+    }
+    countCheckedItems();
+})
+
 toggleAllCheckbox.addEventListener('change', (event) => {
     // label should be hidden if count is 0
     let currentList = document.querySelectorAll('.todo');
     for (listItem of currentList) {
-        let currentItem = listItem.querySelector('input')
+        let currentItem = listItem.querySelector('input');
         if (toggleAllCheckbox.checked) {
             currentItem.checked = true;
         }
@@ -99,10 +112,29 @@ function countCheckedItems() {
         }
     }
 
-    
+    // visibility of "drop-down-button"
+    let dropDownButtonLabel = document.querySelector('#toggle-all-label');
+    if (currentList.length > 0) // if there are items in the list
+    {
+        dropDownButtonLabel.removeAttribute('hidden');
+        if (currentList.length === checkedCounter) // if all items are selected
+        {
+            // check drop down-button
+            toggleAllCheckbox.checked = true;
+        }
+        else // all items aren't selected
+        {
+            // uncheck drop down-button
+            toggleAllCheckbox.checked = false;
+        }
+    }
+    else{ // if list is empty, hide drop down-button
+        dropDownButtonLabel.setAttribute('hidden', true);
+    }
     
     toggleFeatureBar();
     countItems(uncheckedCounter);
+    // visibility of Clear completed-button
     let clearButton = document.querySelector('#clear-button');
     if (checkedCounter > 0) {
         clearButton.textContent = "Clear completed";
