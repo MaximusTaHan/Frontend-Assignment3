@@ -120,23 +120,20 @@ function countCheckedItems() {
     // visibility of toggle-all-checkbox
     let toggleAllLabel = document.querySelector('#toggle-all-label');
     // if there are items in the list
-    if (currentList.length > 0) 
-    {
+    if (currentList.length > 0) {
         toggleAllLabel.removeAttribute('hidden');
         // if all items are selected
-        if (currentList.length === checkedCounter) 
-        {
+        if (currentList.length === checkedCounter) {
             // check toggle-checkbox
             toggleAllCheckbox.checked = true;
         }
         // all items aren't selected
-        else 
-        {
+        else {
             // uncheck toggle-checkbox
             toggleAllCheckbox.checked = false;
         }
     }
-    else { 
+    else {
         // if list is empty, hide toggle-checkbox
         toggleAllLabel.setAttribute('hidden', true);
     }

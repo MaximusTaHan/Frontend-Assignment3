@@ -54,13 +54,11 @@ test('ensure count with multiple posts', async ({ page }) => {
   await page.keyboard.press('Enter');
 
   // 2
-  // input = await page.locator('#input-field');
   await input.fill('Eat food');
 
   await page.keyboard.press('Enter');
 
   // 3
-  // input = await page.locator('#input-field');
   await input.fill('Clean dishes');
 
   await page.keyboard.press('Enter');

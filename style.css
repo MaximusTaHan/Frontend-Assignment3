@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +35,7 @@ h1 {
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%)
 }
 
-form{
+form {
     display: flex;
     align-content: center;
     height: 65.6px;
@@ -110,7 +109,6 @@ li.todo {
     flex: 1;
     background-color: white;
     border-bottom: 1px solid #ededed;
-    /* INTE HELT RÄTT FÄRG */
 }
 
 li .todo-label {
@@ -154,7 +152,6 @@ button {
 /* Feature bar styles.*/
 .feature-bar {
     display: flex;
-    /* INTE HELT RÄTT FÄRG: */
     background-color: #fefefe;
     color: #777;
     flex-wrap: wrap;
@@ -165,7 +162,6 @@ button {
 }
 
 .feature-bar .item-counter {
-    /* display: flex; */
     width: 102px;
 }
 
@@ -174,7 +170,7 @@ button {
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
-    
+
 }
 
 
@@ -200,6 +196,7 @@ button {
     border-color: rgba(175, 47, 47, 0.1);
     border-radius: 2px;
 }
+
 .feature-bar .filters label {
     padding: 3px 7px;
     margin-left: 3px;
@@ -207,7 +204,6 @@ button {
 }
 
 .feature-bar button {
-    /* display: flex; */
     width: 102px;
     color: #777;
 }
@@ -220,8 +216,6 @@ button {
 
     .feature-bar .filters {
         order: 1;
-        /* margin-left: auto;
-        margin-right: auto; */
         margin-top: 10px;
         width: 100%;
         justify-content: center;
@@ -246,7 +240,7 @@ footer {
     text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
 }
 
-footer p{
+footer p {
     margin-top: 10px;
     margin-bottom: 10px;
 }
